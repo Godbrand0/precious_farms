@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import productsBg from "../assets/images/Screenshot from 2026-01-20 05-31-52.png";
 
 const Products = () => {
   const ref = useRef(null);
@@ -52,13 +53,23 @@ const Products = () => {
       description:
         "Special pricing for restaurants, retailers, and bulk buyers. Contact us for wholesale rates.",
       icon: "📦",
-      color: "from-[#0f6e32] to-[#124225]",
+      color: "from-primary to-primary-dark",
       bgColor: "bg-green-50",
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-[#124225] relative overflow-hidden">
+    <section id="products" className="py-20 bg-primary-dark relative overflow-hidden">
+      {/* Background image overlay */}
+      <div
+        className="absolute inset-0 opacity-10 mix-blend-overlay"
+        style={{
+          backgroundImage: `url(${productsBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent" />
       <motion.div
@@ -67,7 +78,7 @@ const Products = () => {
           opacity: [0.05, 0.1, 0.05],
         }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute top-1/4 right-0 w-96 h-96 bg-[#FFF700] rounded-full blur-3xl"
+        className="absolute top-1/4 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"
       />
       <motion.div
         animate={{
@@ -75,7 +86,7 @@ const Products = () => {
           opacity: [0.05, 0.1, 0.05],
         }}
         transition={{ duration: 12, repeat: Infinity }}
-        className="absolute bottom-0 left-0 w-80 h-80 bg-[#0f6e32] rounded-full blur-3xl"
+        className="absolute bottom-0 left-0 w-80 h-80 bg-primary rounded-full blur-3xl"
       />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -85,7 +96,7 @@ const Products = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block bg-[#FFF700] text-[#124225] px-4 py-1 rounded-full text-sm font-semibold mb-4"
+            className="inline-block bg-accent text-primary-dark px-4 py-1 rounded-full text-sm font-semibold mb-4"
           >
             Our Products & Services
           </motion.span>
@@ -96,7 +107,7 @@ const Products = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            What We <span className="text-[#FFF700]">Offer</span>
+            What We <span className="text-accent">Offer</span>
           </motion.h2>
 
           <motion.p
@@ -132,7 +143,7 @@ const Products = () => {
                 </motion.div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-[#124225] mb-3 group-hover:text-[#0f6e32] transition-colors">
+                <h3 className="text-xl font-bold text-primary-dark mb-3 group-hover:text-primary transition-colors">
                   {product.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
@@ -143,7 +154,7 @@ const Products = () => {
                 <motion.a
                   href="#contact"
                   whileHover={{ x: 5 }}
-                  className="inline-flex items-center text-[#0f6e32] font-semibold"
+                  className="inline-flex items-center text-primary font-semibold"
                 >
                   Learn More
                   <svg
@@ -175,7 +186,7 @@ const Products = () => {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 247, 0, 0.3)" }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#FFF700] text-[#124225] px-10 py-4 rounded-full font-bold text-lg shadow-lg"
+            className="bg-accent text-primary-dark px-10 py-4 rounded-full font-bold text-lg shadow-lg"
           >
             View All Products
           </motion.button>

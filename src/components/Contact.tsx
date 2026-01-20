@@ -40,8 +40,8 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FFF700]/10 rounded-full blur-3xl" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#0f6e32]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header */}
@@ -50,7 +50,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block bg-[#0f6e32]/10 text-[#0f6e32] px-4 py-1 rounded-full text-sm font-semibold mb-4"
+            className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4"
           >
             Get In Touch
           </motion.span>
@@ -59,9 +59,9 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#124225] mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-6"
           >
-            Let's <span className="text-[#0f6e32]">Connect</span>
+            Let's <span className="text-primary">Connect</span>
           </motion.h2>
 
           <motion.p
@@ -90,12 +90,12 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.3 }}
                   >
-                    <label className="block text-sm font-semibold text-[#124225] mb-2">
+                    <label className="block text-sm font-semibold text-primary-dark mb-2">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0f6e32] focus:ring-2 focus:ring-[#0f6e32]/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                       placeholder="John Doe"
                     />
                   </motion.div>
@@ -104,12 +104,12 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.35 }}
                   >
-                    <label className="block text-sm font-semibold text-[#124225] mb-2">
+                    <label className="block text-sm font-semibold text-primary-dark mb-2">
                       Phone Number
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0f6e32] focus:ring-2 focus:ring-[#0f6e32]/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                       placeholder="+234 XXX XXX XXXX"
                     />
                   </motion.div>
@@ -120,12 +120,12 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <label className="block text-sm font-semibold text-[#124225] mb-2">
+                  <label className="block text-sm font-semibold text-primary-dark mb-2">
                     Email Address
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0f6e32] focus:ring-2 focus:ring-[#0f6e32]/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </motion.div>
@@ -135,10 +135,10 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.45 }}
                 >
-                  <label className="block text-sm font-semibold text-[#124225] mb-2">
+                  <label className="block text-sm font-semibold text-primary-dark mb-2">
                     Product Interest
                   </label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0f6e32] focus:ring-2 focus:ring-[#0f6e32]/20 outline-none transition-all bg-white">
+                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
                     <option value="">Select a product</option>
                     <option value="catfish">Fresh Catfish</option>
                     <option value="smoked">Smoked Catfish</option>
@@ -153,12 +153,12 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  <label className="block text-sm font-semibold text-[#124225] mb-2">
+                  <label className="block text-sm font-semibold text-primary-dark mb-2">
                     Message
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0f6e32] focus:ring-2 focus:ring-[#0f6e32]/20 outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
                     placeholder="Tell us about your order or question..."
                   />
                 </motion.div>
@@ -170,7 +170,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(15, 110, 50, 0.3)" }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-[#0f6e32] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#124225] transition-colors"
+                  className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-colors"
                 >
                   Send Message
                 </motion.button>
@@ -196,12 +196,12 @@ const Contact = () => {
                   whileHover={{ x: 10 }}
                   className="flex items-center gap-4 bg-gray-50 rounded-xl p-4"
                 >
-                  <div className="w-12 h-12 bg-[#124225] rounded-xl flex items-center justify-center text-white">
+                  <div className="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center text-white">
                     {info.icon}
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">{info.title}</p>
-                    <p className="font-semibold text-[#124225]">{info.value}</p>
+                    <p className="font-semibold text-primary-dark">{info.value}</p>
                   </div>
                 </motion.div>
               ))}
@@ -212,7 +212,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-[#124225] rounded-3xl p-8 h-64 flex items-center justify-center relative overflow-hidden"
+              className="bg-primary-dark rounded-3xl p-8 h-64 flex items-center justify-center relative overflow-hidden"
             >
               <div
                 className="absolute inset-0 opacity-20"
@@ -248,7 +248,7 @@ const Contact = () => {
                   href="#"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 bg-[#124225] rounded-xl flex items-center justify-center text-white hover:bg-[#0f6e32] transition-colors"
+                  className="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center text-white hover:bg-primary transition-colors"
                 >
                   {social === "facebook" && (
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

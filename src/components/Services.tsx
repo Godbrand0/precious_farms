@@ -54,7 +54,7 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#124225]/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-dark/5 to-transparent" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -63,7 +63,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block bg-[#0f6e32]/10 text-[#0f6e32] px-4 py-1 rounded-full text-sm font-semibold mb-4"
+            className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4"
           >
             Who We Serve
           </motion.span>
@@ -72,9 +72,9 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#124225] mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-6"
           >
-            Building <span className="text-[#0f6e32]">Relationships</span>
+            Building <span className="text-primary">Relationships</span>
           </motion.h2>
 
           <motion.p
@@ -101,11 +101,11 @@ const Services = () => {
             >
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-14 h-14 bg-[#124225] rounded-xl flex items-center justify-center text-white mb-4"
+                className="w-14 h-14 bg-primary-dark rounded-xl flex items-center justify-center text-white mb-4"
               >
                 {service.icon}
               </motion.div>
-              <h3 className="text-lg font-bold text-[#124225] mb-2">
+              <h3 className="text-lg font-bold text-primary-dark mb-2">
                 {service.title}
               </h3>
               <p className="text-gray-600 text-sm">{service.description}</p>
@@ -118,7 +118,7 @@ const Services = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="bg-[#124225] rounded-3xl p-8 md:p-12"
+          className="bg-primary-dark rounded-3xl p-8 md:p-12"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>

@@ -1,14 +1,25 @@
 import { motion } from "motion/react";
+import heroBg from "../assets/images/Screenshot from 2026-01-20 05-31-11.png";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#124225]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-dark"
     >
+      {/* Background image overlay */}
+      <div
+        className="absolute inset-0 opacity-40 mix-blend-overlay"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      
       {/* Background overlay with pattern */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
@@ -25,7 +36,7 @@ const Hero = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0f6e32] rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"
       />
       <motion.div
         animate={{
@@ -37,7 +48,7 @@ const Hero = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#FFF700] rounded-full blur-3xl"
+        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent rounded-full blur-3xl"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
@@ -49,7 +60,7 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-block bg-[#FFF700] text-[#124225] px-4 py-1 rounded-full text-sm font-semibold mb-6">
+              <span className="inline-block bg-accent text-primary-dark px-4 py-1 rounded-full text-sm font-semibold mb-6">
                 Nurturing Nature, Delivering Care
               </span>
             </motion.div>
@@ -61,7 +72,7 @@ const Hero = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             >
               Fresh From
-              <span className="text-[#FFF700]"> Farm</span>
+              <span className="text-accent"> Farm</span>
               <br />
               To Your Table
             </motion.h1>
@@ -86,7 +97,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 247, 0, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#FFF700] text-[#124225] px-8 py-4 rounded-full font-bold text-lg shadow-lg"
+                className="bg-accent text-primary-dark px-8 py-4 rounded-full font-bold text-lg shadow-lg"
               >
                 Explore Products
               </motion.button>
@@ -123,7 +134,7 @@ const Hero = () => {
                     {/* Yellow sun/background arc */}
                     <path
                       d="M40 40 Q40 160 100 160 Q160 160 160 100 Q160 40 100 40 L40 40"
-                      fill="#FFF700"
+                      fill="var(--color-accent)"
                     />
                     {/* Green field lines */}
                     <motion.path
@@ -131,7 +142,7 @@ const Hero = () => {
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 2, delay: 0.5 }}
                       d="M50 150 Q70 110 90 150 Q110 110 130 150 Q150 110 170 150"
-                      stroke="#124225"
+                      stroke="var(--color-primary-dark)"
                       strokeWidth="12"
                       fill="none"
                       strokeLinecap="round"
@@ -141,7 +152,7 @@ const Hero = () => {
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 2, delay: 0.8 }}
                       d="M60 130 Q80 90 100 130 Q120 90 140 130"
-                      stroke="#0f6e32"
+                      stroke="var(--color-primary)"
                       strokeWidth="10"
                       fill="none"
                       strokeLinecap="round"
@@ -151,7 +162,7 @@ const Hero = () => {
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 2, delay: 1.1 }}
                       d="M70 110 Q90 70 110 110"
-                      stroke="#124225"
+                      stroke="var(--color-primary-dark)"
                       strokeWidth="8"
                       fill="none"
                       strokeLinecap="round"
@@ -160,7 +171,7 @@ const Hero = () => {
                 </div>
                 <div className="text-center mt-4">
                   <h2 className="text-3xl font-bold text-white">PRECIOUS FARM</h2>
-                  <p className="text-[#FFF700] text-sm mt-1">Nurturing Nature, Delivering Care</p>
+                  <p className="text-accent text-sm mt-1">Nurturing Nature, Delivering Care</p>
                 </div>
               </div>
             </motion.div>
@@ -169,14 +180,14 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, 15, 0], rotate: [0, 5, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 bg-[#FFF700] w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
+              className="absolute -top-10 -right-10 bg-accent w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
             >
               <span className="text-3xl">🐟</span>
             </motion.div>
             <motion.div
               animate={{ y: [0, -15, 0], rotate: [0, -5, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-5 -left-5 bg-[#0f6e32] w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl"
+              className="absolute -bottom-5 -left-5 bg-primary w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl"
             >
               <span className="text-2xl">🥚</span>
             </motion.div>

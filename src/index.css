@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --font-arlon: "Arlon", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-primary-dark: #124225;
+  --color-primary: #0f6e32;
+  --color-accent: #FFF700;
+  --color-white: #ffffff;
+}
+
 /* Arlon Font */
 @font-face {
   font-family: 'Arlon';
@@ -12,26 +21,13 @@
 }
 
 :root {
-  /* Brand Colors */
-  --color-primary-dark: #124225;
-  --color-primary: #0f6e32;
-  --color-accent: #FFF700;
-  --color-white: #ffffff;
-
-  font-family: 'Arlon', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-arlon);
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -42,7 +38,7 @@ body {
   margin: 0;
   min-width: 320px;
   background-color: var(--color-white);
-  font-family: 'Arlon', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-arlon);
 }
 
 /* Custom scrollbar */
@@ -97,3 +93,4 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
