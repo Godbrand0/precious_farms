@@ -5,19 +5,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    products: [
-      { name: "Fresh Catfish", href: "#products" },
-      { name: "Smoked Catfish", href: "#products" },
-      { name: "Fresh Eggs", href: "#products" },
-      { name: "Live Poultry", href: "#products" },
-    ],
     company: [
       { name: "About Us", href: "#about" },
       { name: "Our Mission", href: "#about" },
       { name: "Services", href: "#services" },
       { name: "Contact", href: "#contact" },
     ],
-    support: [
+    resources: [
+      { name: "Fresh Catfish", href: "#products" },
+      { name: "Smoked Catfish", href: "#products" },
+      { name: "Fresh Eggs", href: "#products" },
+      { name: "Live Poultry", href: "#products" },
+    ],
+    help: [
       { name: "FAQ", href: "#" },
       { name: "Delivery Info", href: "#" },
       { name: "Terms of Service", href: "#" },
@@ -26,7 +26,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary-dark text-white">
+    <footer className="bg-[#2C2C2C] text-white">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -39,7 +39,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+              <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center overflow-hidden">
                 <img
                   src={logo}
                   alt="Precious Farm Logo"
@@ -47,8 +47,8 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">PRECIOUS FARM</h3>
-                <p className="text-accent text-sm">Nurturing Nature, Delivering Care</p>
+                <h3 className="text-2xl font-bold">AGRI-POWER</h3>
+                <p className="text-accent text-sm">Cultivating The Future</p>
               </div>
             </motion.div>
 
@@ -59,8 +59,9 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-white/70 mb-6 max-w-md"
             >
-              Contributing to food security by delivering affordable, nutritious,
-              and farm-fresh products while supporting local communities.
+              A modern farm in Ondo State powered by solar energy, operating 24/7
+              with sustainable aquaculture and poultry operations. At the
+              forefront of agricultural innovation.
             </motion.p>
 
             <motion.div
@@ -75,7 +76,7 @@ const Footer = () => {
                   key={social}
                   href="#"
                   whileHover={{ scale: 1.1, y: -3 }}
-                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary-dark transition-colors"
+                  className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 >
                   {social === "facebook" && (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -102,36 +103,14 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          {/* Products links */}
+          {/* Company links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-lg mb-4">Products</h4>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-accent transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Company links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="font-bold text-lg mb-4">Company</h4>
+            <h4 className="font-bold text-lg mb-4">COMPANY</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -146,16 +125,38 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Support links */}
+          {/* Resources links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="font-bold text-lg mb-4">RESOURCES</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-white/70 hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Help links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-bold text-lg mb-4">Support</h4>
+            <h4 className="font-bold text-lg mb-4">HELP</h4>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
+              {footerLinks.help.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -168,6 +169,34 @@ const Footer = () => {
             </ul>
           </motion.div>
         </div>
+
+        {/* Get In Touch Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-12 pt-12 border-t border-white/10"
+        >
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h4 className="font-bold text-lg mb-2">ADDRESS</h4>
+              <p className="text-white/70">
+                2450 Agape Drive Road
+                <br />
+                Ondo State, Nigeria
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-2">PHONE</h4>
+              <p className="text-white/70">+1 2 345 678 90</p>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-2">EMAIL</h4>
+              <p className="text-white/70">hello@preciousfarm.com</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Bottom bar */}
@@ -181,17 +210,25 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-white/50 text-sm"
             >
-              © {currentYear} Precious Farm. All rights reserved.
+              © {currentYear} Agri-Power. All Rights Reserved.
             </motion.p>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-white/50 text-sm"
+              className="flex gap-6 text-white/50 text-sm"
             >
-              Made with care in Nigeria 🇳🇬
-            </motion.p>
+              <a href="#" className="hover:text-white transition-colors">
+                FAQ
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+            </motion.div>
           </div>
         </div>
       </div>

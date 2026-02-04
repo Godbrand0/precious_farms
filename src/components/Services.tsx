@@ -45,36 +45,53 @@ const Services = () => {
     },
   ];
 
-  const values = [
-    { title: "Trust", icon: "🤝" },
-    { title: "Quality", icon: "⭐" },
-    { title: "Reliability", icon: "✓" },
+  const products = [
+    {
+      title: "Fresh Catfish",
+      description: "Daily supply of live catfish from our 5 large ponds",
+      icon: "🐟",
+    },
+    {
+      title: "Smoked Catfish",
+      description: "Traditionally processed for rich flavor and long storage",
+      icon: "🔥",
+    },
+    {
+      title: "Fresh Eggs",
+      description: "Premium quality eggs from our healthy poultry",
+      icon: "🥚",
+    },
+    {
+      title: "Live Poultry",
+      description: "Vaccinated and well-cared-for chickens",
+      icon: "🐔",
+    },
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="services" className="py-20 bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-dark/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F5F5F0] to-transparent" />
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section header */}
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4"
+            className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4"
           >
-            Who We Serve
+            Our Services & Products
           </motion.span>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-6"
           >
-            Building <span className="text-primary">Relationships</span>
+            Who We <span className="text-primary">Serve</span>
           </motion.h2>
 
           <motion.p
@@ -83,8 +100,8 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-gray-600 text-lg max-w-2xl mx-auto"
           >
-            We serve diverse customers, building long-term partnerships based on
-            our core values.
+            We serve diverse customers across Ondo State and beyond, building
+            long-term partnerships based on quality, reliability, and innovation.
           </motion.p>
         </div>
 
@@ -97,15 +114,15 @@ const Services = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * index }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-[#F5F5F0] rounded-2xl p-6 hover:shadow-lg transition-all duration-300"
             >
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-14 h-14 bg-primary-dark rounded-xl flex items-center justify-center text-white mb-4"
+                className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center text-white mb-4"
               >
                 {service.icon}
               </motion.div>
-              <h3 className="text-lg font-bold text-primary-dark mb-2">
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-2">
                 {service.title}
               </h3>
               <p className="text-gray-600 text-sm">{service.description}</p>
@@ -113,37 +130,88 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Values section */}
+        {/* Products Section */}
+        <div className="mb-16">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-8 text-center"
+          >
+            What We <span className="text-primary">Offer</span>
+          </motion.h3>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white border-2 border-gray-100 rounded-2xl p-6 text-center hover:border-primary transition-all duration-300"
+              >
+                <div className="text-4xl mb-4">{product.icon}</div>
+                <h4 className="text-lg font-bold text-[#2C2C2C] mb-2">
+                  {product.title}
+                </h4>
+                <p className="text-gray-600 text-sm">{product.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Veterinary Care Highlight */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="bg-primary-dark rounded-3xl p-8 md:p-12"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="bg-primary rounded-3xl p-8 md:p-12 text-white"
         >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Our Foundation is Built on
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Professional Veterinary Care
               </h3>
-              <p className="text-white/70 text-lg">
-                We believe in creating lasting partnerships through consistent
-                quality and dedicated service to every customer.
+              <p className="text-white/90 text-lg mb-6">
+                Our standby veterinarian ensures all poultry receive regular
+                vaccinations and health monitoring, maintaining the highest
+                standards of animal welfare and product quality.
               </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">💉</span>
+                </div>
+                <div>
+                  <p className="font-semibold">Regular Vaccination Programs</p>
+                  <p className="text-white/80 text-sm">
+                    Ensuring healthy, disease-free poultry
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="flex justify-center md:justify-end gap-4">
-              {values.map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center min-w-[100px]"
-                >
-                  <span className="text-3xl mb-2 block">{value.icon}</span>
-                  <p className="text-white font-semibold">{value.title}</p>
-                </motion.div>
-              ))}
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center min-w-[120px]"
+              >
+                <span className="text-3xl mb-2 block">✓</span>
+                <p className="font-semibold">Quality</p>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center min-w-[120px]"
+              >
+                <span className="text-3xl mb-2 block">🌱</span>
+                <p className="font-semibold">Sustainability</p>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center min-w-[120px]"
+              >
+                <span className="text-3xl mb-2 block">⚡</span>
+                <p className="font-semibold">Innovation</p>
+              </motion.div>
             </div>
           </div>
         </motion.div>

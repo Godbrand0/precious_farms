@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import ctaImage from "../assets/images/XKs5E_Gc.jpg";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -27,7 +28,7 @@ const Contact = () => {
     },
     {
       title: "Visit Us",
-      value: "Lagos, Nigeria",
+      value: "Ondo State, Nigeria",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -39,18 +40,63 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      {/* CTA Banner */}
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="relative rounded-3xl overflow-hidden h-[400px]"
+        >
+          <img
+            src={ctaImage}
+            alt="Join Agricultural Revolution"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-5xl font-bold text-white mb-6"
+            >
+              Join The Agricultural
+              <br />
+              Revolution Today!
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-6 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-500 outline-none focus:ring-2 focus:ring-primary min-w-[300px]"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#2C2C2C] text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary transition-colors"
+              >
+                Subscribe
+              </motion.button>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Contact Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4"
+            className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4"
           >
             Get In Touch
           </motion.span>
@@ -59,7 +105,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-6"
           >
             Let's <span className="text-primary">Connect</span>
           </motion.h2>
@@ -82,7 +128,7 @@ const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-gray-50 rounded-3xl p-8">
+            <div className="bg-[#F5F5F0] rounded-3xl p-8">
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
@@ -90,12 +136,12 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.3 }}
                   >
-                    <label className="block text-sm font-semibold text-primary-dark mb-2">
+                    <label className="block text-sm font-semibold text-[#2C2C2C] mb-2">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                       placeholder="John Doe"
                     />
                   </motion.div>
@@ -104,12 +150,12 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.35 }}
                   >
-                    <label className="block text-sm font-semibold text-primary-dark mb-2">
+                    <label className="block text-sm font-semibold text-[#2C2C2C] mb-2">
                       Phone Number
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                       placeholder="+234 XXX XXX XXXX"
                     />
                   </motion.div>
@@ -120,12 +166,12 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
-                  <label className="block text-sm font-semibold text-primary-dark mb-2">
+                  <label className="block text-sm font-semibold text-[#2C2C2C] mb-2">
                     Email Address
                   </label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </motion.div>
@@ -135,10 +181,10 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.45 }}
                 >
-                  <label className="block text-sm font-semibold text-primary-dark mb-2">
+                  <label className="block text-sm font-semibold text-[#2C2C2C] mb-2">
                     Product Interest
                   </label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white">
+                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
                     <option value="">Select a product</option>
                     <option value="catfish">Fresh Catfish</option>
                     <option value="smoked">Smoked Catfish</option>
@@ -153,12 +199,12 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  <label className="block text-sm font-semibold text-primary-dark mb-2">
+                  <label className="block text-sm font-semibold text-[#2C2C2C] mb-2">
                     Message
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
                     placeholder="Tell us about your order or question..."
                   />
                 </motion.div>
@@ -167,10 +213,10 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.55 }}
-                  whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(15, 110, 50, 0.3)" }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-colors"
+                  className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-colors shadow-lg"
                 >
                   Send Message
                 </motion.button>
@@ -178,7 +224,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact info & map placeholder */}
+          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -194,44 +240,44 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="flex items-center gap-4 bg-gray-50 rounded-xl p-4"
+                  className="flex items-center gap-4 bg-[#F5F5F0] rounded-xl p-6"
                 >
-                  <div className="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center text-white">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
                     {info.icon}
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">{info.title}</p>
-                    <p className="font-semibold text-primary-dark">{info.value}</p>
+                    <p className="font-semibold text-[#2C2C2C]">{info.value}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* Additional Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-primary-dark rounded-3xl p-8 h-64 flex items-center justify-center relative overflow-hidden"
+              className="bg-primary rounded-3xl p-8 text-white"
             >
-              <div
-                className="absolute inset-0 opacity-20"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                }}
-              />
-              <div className="text-center text-white relative z-10">
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <svg className="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </motion.div>
-                <p className="font-semibold text-lg">Visit Our Farm</p>
-                <p className="text-white/70">Lagos, Nigeria</p>
+              <h3 className="text-2xl font-bold mb-4">Visit Our Farm</h3>
+              <p className="text-white/90 mb-6">
+                Experience our solar-powered operations, see our 5 large catfish
+                ponds, and tour our extensive poultry facilities in Ondo State.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">📍</span>
+                  <span>Ondo State, Nigeria</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">⏰</span>
+                  <span>24/7 Operations</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">☀️</span>
+                  <span>Solar-Powered Facility</span>
+                </div>
               </div>
             </motion.div>
 
@@ -248,7 +294,7 @@ const Contact = () => {
                   href="#"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center text-white hover:bg-primary transition-colors"
+                  className="w-12 h-12 bg-[#F5F5F0] rounded-xl flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
                 >
                   {social === "facebook" && (
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

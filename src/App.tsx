@@ -2,7 +2,7 @@ import {
   Navbar,
   Hero,
   About,
-  Products,
+  Features,
   Services,
   Contact,
   Footer,
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Products />
+      <Features />
       <Services />
       <Contact />
       <Footer />

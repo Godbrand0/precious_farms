@@ -1,104 +1,59 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import aboutBg from "../assets/images/Screenshot from 2026-01-20 05-30-42.png";
+import farmImage from "../assets/images/8jpIhzjA.jpg";
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "1000+", label: "Happy Customers" },
-    { number: "50+", label: "Products" },
-    { number: "100%", label: "Fresh & Organic" },
-  ];
-
   return (
     <section id="about" className="py-20 bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-dark/5 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-      
-      {/* Background image overlay */}
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: `url(${aboutBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent" />
 
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Image/Visual */}
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          >
+            2025
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C2C2C] mb-6"
+          >
+            Despite Agri-Tech Advances,
+            <br />
+            Traditional Farming Highlights
+            <br />
+            Ongoing Inefficiencies
+          </motion.h2>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative">
-              {/* Main image placeholder with brand colors */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-primary-dark rounded-3xl p-8 aspect-square flex items-center justify-center relative overflow-hidden"
-              >
-                {/* Background pattern */}
-                <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20.5h-2zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H24v-2zm0 4h20v2H24v-2zm0 4h20v2H24v-2zm0 4h20v2H24v-2z' fill='%23ffffff' fill-opacity='0.2'/%3E%3C/svg%3E")`,
-                  }}
-                />
-
-                {/* Logo display */}
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-48 h-48 md:w-64 md:h-64 relative z-10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect x="30" y="30" width="140" height="140" rx="20" fill="white" />
-                  <path
-                    d="M50 50 Q50 150 100 150 Q150 150 150 100 Q150 50 100 50 L50 50"
-                    fill="var(--color-accent)"
-                  />
-                  <path
-                    d="M55 140 Q75 100 95 140 Q115 100 135 140 Q155 100 175 140"
-                    stroke="var(--color-primary-dark)"
-                    strokeWidth="10"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M65 120 Q85 80 105 120 Q125 80 145 120"
-                    stroke="var(--color-primary)"
-                    strokeWidth="8"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M75 100 Q95 60 115 100"
-                    stroke="var(--color-primary-dark)"
-                    strokeWidth="6"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </motion.div>
-
-              {/* Floating accent card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute -bottom-6 -right-6 bg-accent p-6 rounded-2xl shadow-xl"
-              >
-                <p className="text-primary-dark font-bold text-lg">Since 2019</p>
-                <p className="text-primary-dark/70 text-sm">Serving Communities</p>
-              </motion.div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src={farmImage}
+                alt="Modern Farming Technology"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
           </motion.div>
 
@@ -108,72 +63,142 @@ const About = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4"
-            >
-              About Us
-            </motion.span>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-6"
-            >
-              Our Mission is
-              <span className="text-primary"> Food Security</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-gray-600 text-lg mb-6 leading-relaxed"
-            >
-              Our mission is to contribute to food security by delivering
-              affordable, nutritious, and farm-fresh products while supporting
-              local communities and promoting sustainable farming practices.
-            </motion.p>
-
-            <motion.p
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-gray-600 text-lg mb-8 leading-relaxed"
+              className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-6"
             >
-              We serve households, retailers, restaurants, and bulk buyers,
-              building long-term relationships based on trust, quality, and
-              reliability.
-            </motion.p>
+              Precious Farm: Leading Innovation in Ondo State
+            </motion.h3>
 
-            {/* Stats */}
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="text-gray-600 text-lg mb-6 leading-relaxed"
             >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="text-center p-4 bg-gray-50 rounded-xl"
-                >
-                  <p className="text-2xl md:text-3xl font-bold text-primary">
-                    {stat.number}
+              At Precious Farm, we're revolutionizing agriculture in Ondo State
+              through cutting-edge technology and sustainable practices. Our
+              modern facility operates 24/7, powered entirely by solar energy.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="space-y-4"
+            >
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-lg">☀️</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    Solar-Powered Operations
+                  </h4>
+                  <p className="text-gray-600">
+                    100% renewable energy ensures continuous farm operations day
+                    and night
                   </p>
-                  <p className="text-gray-500 text-sm mt-1">{stat.label}</p>
-                </motion.div>
-              ))}
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-lg">🐟</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    5 Large Catfish Ponds
+                  </h4>
+                  <p className="text-gray-600">
+                    State-of-the-art aquaculture facilities producing premium
+                    quality catfish
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-lg">🐔</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    Extensive Poultry Operations
+                  </h4>
+                  <p className="text-gray-600">
+                    Large-scale poultry section with dedicated veterinary care
+                    and vaccination programs
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-lg">📹</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    24/7 Security Monitoring
+                  </h4>
+                  <p className="text-gray-600">
+                    Solar-powered CCTV cameras ensure round-the-clock farm
+                    security
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-lg">🏠</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2C2C2C] mb-1">
+                    Complete Infrastructure
+                  </h4>
+                  <p className="text-gray-600">
+                    Equipped with feed storehouses and worker housing for
+                    continuous farm attention
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Bottom CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="bg-[#F5F5F0] rounded-3xl p-8 md:p-12 text-center"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-4">
+            Get Started Now
+          </h3>
+          <p className="text-gray-600 text-lg mb-6 max-w-2xl mx-auto">
+            Experience the future of farming with Precious Farm. We combine
+            sustainable methods with smart technology to deliver the highest
+            quality products.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#2C2C2C] text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:bg-primary transition-colors"
+            >
+              Learn More
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-[#2C2C2C] text-[#2C2C2C] px-8 py-4 rounded-lg font-semibold hover:bg-[#2C2C2C] hover:text-white transition-colors"
+            >
+              Contact Us
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
