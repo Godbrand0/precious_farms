@@ -105,9 +105,9 @@ const Gallery = () => {
       : galleryImages.filter((img) => img.category === activeCategory);
 
   return (
-    <section id="gallery" className="py-20 bg-white relative overflow-hidden">
+    <section id="gallery" className="mt-30  bg-white relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#F5F5F0] to-transparent" />
+      <div className="absolute top-0 left-0 w-1/2 h-full " />
 
       <div
         ref={ref}
@@ -183,7 +183,7 @@ const Gallery = () => {
               transition={{ duration: 0.5, delay: 0.1 * index }}
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.15)" }}
               onClick={() => setSelectedImage(image.id)}
-              className="relative overflow-hidden rounded-xl cursor-pointer group"
+              className="relative overflow-hidden rounded-xl my-10 cursor-pointer group"
             >
               <div className="aspect-square">
                 <img
@@ -209,14 +209,14 @@ const Gallery = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/90 pt-10 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-4xl max-h-full"
+              className="relative max-w-4xl max-h-full p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <img

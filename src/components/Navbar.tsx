@@ -95,14 +95,7 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Desktop Sign In Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block bg-[#2C2C2C] text-white px-6 py-2 rounded-lg font-semibold transition-colors hover:bg-primary"
-          >
-            Sign In
-          </motion.button>
+          
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -136,11 +129,11 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 w-64 h-full bg-white shadow-2xl z-50 md:hidden"
+            className="fixed top-0 left-0 right-0 h-auto bg-white shadow-2xl z-50 md:hidden"
           >
             <div className="flex flex-col h-full">
               <div className="flex justify-end p-4">
@@ -164,7 +157,7 @@ const Navbar = () => {
                   </svg>
                 </motion.button>
               </div>
-              <nav className="flex-1 px-6 py-8">
+              <nav className="px-6 py-8 text-center">
                 {[
                   "Home",
                   "About",
@@ -185,10 +178,10 @@ const Navbar = () => {
                         <Link
                           to="/gallery"
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={`block py-3 font-medium transition-colors ${
+                          className={`block py-3 px-6 font-medium transition-colors rounded-lg ${
                             location.pathname === "/gallery"
-                              ? "text-primary"
-                              : "text-[#2C2C2C] hover:text-primary"
+                              ? "bg-primary text-white"
+                              : "text-[#2C2C2C] hover:bg-gray-100"
                           }`}
                         >
                           {item}
@@ -211,7 +204,7 @@ const Navbar = () => {
                         <a
                           href={`#${item.toLowerCase()}`}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-3 text-[#2C2C2C] font-medium transition-colors hover:text-primary"
+                          className="block py-3 px-6 text-[#2C2C2C] font-medium transition-colors rounded-lg hover:bg-gray-100"
                         >
                           {item}
                         </a>
@@ -228,16 +221,6 @@ const Navbar = () => {
                   );
                 })}
               </nav>
-              <div className="p-6">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full bg-[#2C2C2C] text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-primary"
-                >
-                  Sign In
-                </motion.button>
-              </div>
             </div>
           </motion.div>
         )}
@@ -252,7 +235,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            className="fixed inset-0 bg-black/50 z-40 h-screen md:hidden"
           />
         )}
       </AnimatePresence>
