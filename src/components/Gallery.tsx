@@ -2,6 +2,18 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Footer } from "./index";
+import catfish from "../assets/images/catfish.jpeg";
+import img7085 from "../assets/images/IMG_7085.JPG.jpeg";
+import eggs from "../assets/images/eggs-stacked-crates-on-chicken-farm-dormaa-440nw-9682843r.jpg";
+import img7088 from "../assets/images/IMG_7088.JPG.jpeg";
+import img7091 from "../assets/images/IMG_7091.JPG.jpeg";
+import img7092 from "../assets/images/IMG_7092.JPG.jpeg";
+import img7108 from "../assets/images/IMG_7108.JPG.jpeg";
+import img8jpIhzjA from "../assets/images/8jpIhzjA.jpg";
+import CPWwS2_b from "../assets/images/CPWwS2_b.jpg";
+import OggkNeT from "../assets/images/Ogg-kNeT.jpg";
+import xeLXKvj from "../assets/images/xe-LXKvj.jpg";
+import XKs5E_Gc from "../assets/images/XKs5E_Gc.jpg";
 
 const Gallery = () => {
   const ref = useRef(null);
@@ -11,73 +23,73 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/src/assets/images/catfish.jpeg",
+      src: catfish,
       alt: "Fresh Catfish from our ponds",
       category: "Fish Farming",
     },
     {
       id: 2,
-      src: "/src/assets/images/IMG_7085.JPG.jpeg",
+      src: img7085,
       alt: "Smoked Catfish processing",
       category: "Processing",
     },
     {
       id: 3,
-      src: "/src/assets/images/eggs-stacked-crates-on-chicken-farm-dormaa-440nw-9682843r.jpg",
+      src: eggs,
       alt: "Fresh eggs from our poultry",
       category: "Poultry",
     },
     {
       id: 4,
-      src: "/src/assets/images/IMG_7088.JPG.jpeg",
+      src: img7088,
       alt: "Healthy chickens in our farm",
       category: "Poultry",
     },
     {
       id: 5,
-      src: "/src/assets/images/IMG_7091.JPG.jpeg",
+      src: img7091,
       alt: "Farm facilities",
       category: "Infrastructure",
     },
     {
       id: 6,
-      src: "/src/assets/images/IMG_7092.JPG.jpeg",
+      src: img7092,
       alt: "Farm operations",
       category: "Operations",
     },
     {
       id: 7,
-      src: "/src/assets/images/IMG_7108.JPG.jpeg",
+      src: img7108,
       alt: "Farm landscape",
       category: "Landscape",
     },
     {
       id: 8,
-      src: "/src/assets/images/8jpIhzjA.jpg",
+      src: img8jpIhzjA,
       alt: "Farm overview",
       category: "Overview",
     },
     {
       id: 9,
-      src: "/src/assets/images/CPWwS2_b.jpg",
+      src: CPWwS2_b,
       alt: "Farm activities",
       category: "Activities",
     },
     {
       id: 10,
-      src: "/src/assets/images/Ogg-kNeT.jpg",
+      src: OggkNeT,
       alt: "Farm resources",
       category: "Resources",
     },
     {
       id: 11,
-      src: "/src/assets/images/xe-LXKvj.jpg",
+      src: xeLXKvj,
       alt: "Farm environment",
       category: "Environment",
     },
     {
       id: 12,
-      src: "/src/assets/images/XKs5E_Gc.jpg",
+      src: XKs5E_Gc,
       alt: "Farm management",
       category: "Management",
     },
