@@ -28,7 +28,7 @@ const Navbar = () => {
               />
             </div>
             <div className="text-primary-dark">
-              <h1 className="text-4xl font-extrabold ">preciousfarms</h1>
+              <h1 className="md:text-2xl font-extrabold ">preciousfarms</h1>
             </div>
           </motion.div>
 
