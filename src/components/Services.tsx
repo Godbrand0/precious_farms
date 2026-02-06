@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import catfish from "../assets/images/catfish.jpeg";
+import img7085 from "../assets/images/IMG_7085.JPG.jpeg";
+import eggs from "../assets/images/eggs-stacked-crates-on-chicken-farm-dormaa-440nw-9682843r.jpg";
+import img7092 from "../assets/images/IMG_7092.JPG.jpeg";
 
 const Services = () => {
   const ref = useRef(null);
@@ -89,23 +93,22 @@ const Services = () => {
     {
       title: "Fresh Catfish",
       description: "Daily supply of live catfish from our 5 large ponds",
-      image: "/src/assets/images/catfish.jpeg",
+      image: catfish,
     },
     {
       title: "Smoked Catfish",
       description: "Traditionally processed for rich flavor and long storage",
-      image: "/src/assets/images/IMG_7088.JPG.jpeg",
+      image: img7085,
     },
     {
       title: "Fresh Eggs",
       description: "Premium quality eggs from our healthy poultry",
-      image:
-        "/src/assets/images/eggs-stacked-crates-on-chicken-farm-dormaa-440nw-9682843r.jpg",
+      image: eggs,
     },
     {
       title: "Live Poultry",
       description: "Vaccinated and well-cared-for chickens",
-      image: "/src/assets/images/IMG_7092.JPG.jpeg",
+      image: img7092,
     },
   ];
 
