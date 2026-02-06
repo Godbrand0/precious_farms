@@ -47,7 +47,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-bold">AGRI-POWER</h3>
+                <h3 className="text-2xl font-bold">preciousfarms</h3>
                 <p className="text-accent text-sm">Cultivating The Future</p>
               </div>
             </motion.div>

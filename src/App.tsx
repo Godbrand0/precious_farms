@@ -1,23 +1,16 @@
-import {
-  Navbar,
-  Hero,
-  About,
-  Features,
-  Services,
-  Contact,
-  Footer,
-} from "./components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar, Home, Gallery } from "./components";
 
 function App() {
   return (
     <div className="overflow-x-hidden font-['Arlon',_'Inter',_system-ui,_sans-serif]">
-      <Navbar />
-      <Hero />
-      <About />
-      <Features />
-      <Services />
-      <Contact />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

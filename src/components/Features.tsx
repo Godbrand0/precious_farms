@@ -14,25 +14,28 @@ const Features = () => {
     {
       title: "Farming Precision",
       description:
-        "Advanced technology to optimize every aspect of farm operations",
+        "Advanced technology to optimize every aspect of poultry operations",
       image: farmImage1,
     },
     {
-      title: "Crop Surveillance",
+      title: "Farm Surveillance",
       description:
         "Solar-powered monitoring systems for real-time farm oversight and security",
       image: farmImage2,
     },
     {
-      title: "Automated Farming",
+      title: "Experienced Workers",
       description:
-        "Smart systems ensuring consistent quality and productivity in aquaculture and poultry",
+        "Experienced workers to ensure consistent quality and productivity in aquaculture and poultry",
       image: farmImage3,
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-[#FAFAF8] relative overflow-hidden">
+    <section
+      id="products"
+      className="py-20 bg-[#FAFAF8] relative overflow-hidden"
+    >
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Collaborate Section */}
         <motion.div
@@ -93,7 +96,7 @@ const Features = () => {
           >
             Next-Gen Solutions For
             <br />
-            Optimal Crop Growth
+            Optimal farm Growth
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -101,9 +104,10 @@ const Features = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-gray-600 text-lg max-w-2xl"
           >
-            We deliver advanced solutions to support farmers throughout the
-            entire farming cycle. A light farming and efficient farming
-            experience.
+            We deliver cutting-edge solutions that optimize every stage of the
+            farming cycle, creating a streamlined and highly efficient
+            agricultural experience for maximum productivity and sustainable
+            growth.
           </motion.p>
         </div>
 

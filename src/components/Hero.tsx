@@ -3,10 +3,10 @@ import heroBg from "../assets/images/Screenshot from 2026-01-20 05-31-11.png";
 
 const Hero = () => {
   const stats = [
-    { number: "35+", label: "Experiences" },
-    { number: "260+", label: "Farm Engage" },
-    { number: "80,000+", label: "Farms Reached" },
-    { number: "$16 Billion", label: "Agrifood Fintech" },
+    { number: "5+", label: "Experience" },
+    { number: "260+", label: "Birds" },
+    { number: "10,000+", label: "fishes harvested" },
+    { number: "1600+", label: "eggs produced" },
   ];
 
   return (
@@ -131,34 +131,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-20 hidden md:block"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center text-gray-400"
-        >
-          <span className="text-sm mb-2">Scroll Down</span>
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </motion.div>
-      </motion.div>
+     
     </section>
   );
 };

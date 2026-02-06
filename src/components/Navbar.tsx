@@ -1,7 +1,12 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/images/Screenshot from 2026-01-20 05-32-13.png";
 
 const Navbar = () => {
+  const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -23,37 +28,234 @@ const Navbar = () => {
               />
             </div>
             <div className="text-primary-dark">
-              <h1 className="text-xl font-bold leading-tight">AGRI-POWER</h1>
+              <h1 className="text-4xl font-extrabold ">preciousfarms</h1>
             </div>
           </motion.div>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {["Home", "About", "Products", "Services", "Contact"].map(
-              (item, index) => (
-                <motion.a
+            {[
+              "Home",
+              "About",
+              "Products",
+              "Services",
+              "Gallery",
+              "Contact",
+            ].map((item, index) => {
+              // Special handling for Gallery which is a separate route
+              if (item === "Gallery") {
+                return (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * index + 0.5 }}
+                  >
+                    <Link
+                      to="/gallery"
+                      className={`font-medium transition-colors ${
+                        location.pathname === "/gallery"
+                          ? "text-primary"
+                          : "text-[#2C2C2C] hover:text-primary"
+                      }`}
+                    >
+                      {item}
+                    </Link>
+                  </motion.div>
+                );
+              }
+
+              // For other items, check if we're on the home page
+              const isHomeActive = location.pathname === "/";
+
+              return (
+                <motion.div
                   key={item}
-                  href={`#${item.toLowerCase()}`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index + 0.5 }}
-                  whileHover={{ scale: 1.1, color: "var(--color-primary)" }}
-                  className="text-[#2C2C2C] font-medium transition-colors hover:text-primary"
                 >
-                  {item}
-                </motion.a>
-              )
-            )}
+                  {isHomeActive ? (
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="text-[#2C2C2C] font-medium transition-colors hover:text-primary"
+                    >
+                      {item}
+                    </a>
+                  ) : (
+                    <Link
+                      to={`/#${item.toLowerCase()}`}
+                      className="text-[#2C2C2C] font-medium transition-colors hover:text-primary"
+                    >
+                      {item}
+                    </Link>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
 
+          {/* Desktop Sign In Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#2C2C2C] text-white px-6 py-2 rounded-lg font-semibold transition-colors hover:bg-primary"
+            className="hidden md:block bg-[#2C2C2C] text-white px-6 py-2 rounded-lg font-semibold transition-colors hover:bg-primary"
           >
             Sign In
           </motion.button>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5"
+          >
+            <motion.span
+              animate={{
+                rotate: isMobileMenuOpen ? 45 : 0,
+                y: isMobileMenuOpen ? 6 : 0,
+              }}
+              className="w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300"
+            />
+            <motion.span
+              animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
+              className="w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300"
+            />
+            <motion.span
+              animate={{
+                rotate: isMobileMenuOpen ? -45 : 0,
+                y: isMobileMenuOpen ? -6 : 0,
+              }}
+              className="w-6 h-0.5 bg-[#2C2C2C] transition-all duration-300"
+            />
+          </motion.button>
         </div>
       </div>
+
+      {/* Mobile Sidebar Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed top-0 right-0 w-64 h-full bg-white shadow-2xl z-50 md:hidden"
+          >
+            <div className="flex flex-col h-full">
+              <div className="flex justify-end p-4">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </motion.button>
+              </div>
+              <nav className="flex-1 px-6 py-8">
+                {[
+                  "Home",
+                  "About",
+                  "Products",
+                  "Services",
+                  "Gallery",
+                  "Contact",
+                ].map((item, index) => {
+                  // Special handling for Gallery which is a separate route
+                  if (item === "Gallery") {
+                    return (
+                      <motion.div
+                        key={item}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * index }}
+                      >
+                        <Link
+                          to="/gallery"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`block py-3 font-medium transition-colors ${
+                            location.pathname === "/gallery"
+                              ? "text-primary"
+                              : "text-[#2C2C2C] hover:text-primary"
+                          }`}
+                        >
+                          {item}
+                        </Link>
+                      </motion.div>
+                    );
+                  }
+
+                  // For other items, check if we're on the home page
+                  const isHomeActive = location.pathname === "/";
+
+                  return (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                    >
+                      {isHomeActive ? (
+                        <a
+                          href={`#${item.toLowerCase()}`}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-3 text-[#2C2C2C] font-medium transition-colors hover:text-primary"
+                        >
+                          {item}
+                        </a>
+                      ) : (
+                        <Link
+                          to={`/#${item.toLowerCase()}`}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block py-3 text-[#2C2C2C] font-medium transition-colors hover:text-primary"
+                        >
+                          {item}
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </nav>
+              <div className="p-6">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full bg-[#2C2C2C] text-white px-6 py-3 rounded-lg font-semibold transition-colors hover:bg-primary"
+                >
+                  Sign In
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          />
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
